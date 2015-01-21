@@ -1,0 +1,134 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+#import <sys/sysctl.h>
+
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+	#import <UIKit/UIKit.h>
+	#import <Foundation/Foundation.h>
+	#import "Configuration.h"
+	#import "Utility.h"
+
+#endif
+
+/**
+ *  ios判定マクロ
+ */
+#define SYSTEM_VERSION_EQUAL_TO(v)					([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)				([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)	([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)					([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)		([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+/**
+ *  色指定マクロ
+ */
+#define RGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+#define RGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+
+/**
+ *  接続先設定
+ */
+
+/**
+ *  本番環境
+ */
+#define RakuzaApiKey		@"7b66c8608428b6fa0"
+#define RakuzaApiURL		@"https://00044:2011e6a6e21aa00b826cda2496c19616@www.raku-za.jp/reserve/eme-delivery/api_control/"
+#define OrderURL			@"https://fgweb.frontech.fujitsu.com/MSPWBNEO/MenuInfo.do?PID="
+
+
+/**
+ *  開発環境
+ */
+//#define RakuzaApiKey		@"0123456789ABCDEFG"
+//#define RakuzaApiURL		@"http://rakuzauser:rakuzauser2014@133.162.231.234/reserve/emi-delivery/api_control/index/"
+//#define OrderURL			@"https://fgweb.frontech.fujitsu.com/MSPWBNEO/MenuInfo.do?PID="
+
+
+/**
+ *  定数
+ */
+#define APIResponseNormalStatusCode		@"1001"
+#define Const_tenantid					@"00044"
+
+
+/**
+ *  共通
+ */
+#define TitleCommonError				@"エラー"
+#define TitleCommonConnecting			@"通信中"
+#define TitleCommonSetting				@"設定中"
+#define TitleCommonConfirm				@"確認"
+#define TitleCommonInitialization		@"初期設定中"
+
+
+//メッセージ
+#define MsgCommonPleaseWait				@"しばらくお待ちください"
+#define MsgCommonError					@"通信エラー"
+#define MsgCommonConnectError			@"接続に失敗しました"
+#define MsgCommonFormatError			@"データのフォーマットが\n正しくありません"
+#define MsgUnreadMessagesZero			@"未読通知はありません"
+#define MsgMessagesZero					@"メッセージがありません"
+
+//ボタンタイトル
+#define BtnCommonConfirm				@"確認"
+#define BtnCommonCancel					@"キャンセル"
+#define BtnCommonSelect					@"選択"
+
+//病院・会社情報
+#define MsgGetCompanyError				@"通信エラー(1003)"
+#define MsgGetCompanyFormatError		@"データのフォーマットが\n正しくありません(2003)"
+#define MsgGetCompanyConnectError		@"接続に失敗しました(3003)"
+
+//診療科・部門情報
+#define MsgGetDepartmentError			@"通信エラー(1004)"
+#define MsgGetDepartmentFormatError		@"データのフォーマットが\n正しくありません(2004)"
+#define MsgGetDepartmentConnectError	@"接続に失敗しました(3004)"
+
+//病院契約会社情報
+#define MsgGetContractError				@"通信エラー(1005)"
+#define MsgGetContractFormatError		@"データのフォーマットが\n正しくありません(2005)"
+#define MsgGetContractConnectError		@"接続に失敗しました(3005)"
+
+//タクシー情報
+#define MsgGetTaxiError					@"通信エラー(1006)"
+#define MsgGetTaxiFormatError			@"データのフォーマットが\n正しくありません(2006)"
+#define MsgGetTaxiConnectError			@"接続に失敗しました(3006)"
+
+//Beacon情報
+#define MsgGetBeaconError				@"通信エラー(1007)"
+#define MsgGetBeaconFormatError			@"データのフォーマットが\n正しくありません(2007)"
+#define MsgGetBeaconConnectError		@"接続に失敗しました(3007)"
+
+//診療科一覧
+#define MsgDepartmentListZero			@"診療科データがありません"
+
+//病院案内
+#define MsgURLZero						@"接続先URLがありません"
+
+//行き先案内
+#define MsgMapZero						@"行き先案内機能を使用するには\nGoogleMapsアプリのインストールが必要です"
+//診療科
+#define MsgDepartmentZero				@"診療科目案内データがありません"
+
+//受付番号
+#define MsgNumberTicketZero				@"受付番号が入力されていません"
+
+//受付番号入力チェック
+#define MsgNumberTicketNotEntered		@"診察券番号が入力されていません"
+#define MsgNumberTicketErrorFormat		@"診察券番号は半角数字で\n登録してください"
+#define MsgNumberTicketErrorDigits		@"診察券番号は10桁で\n登録してください"
+
+
+
+

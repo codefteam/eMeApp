@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>03F0D89A-2886-4A48-91D8-DA05E5C91D82</string>
+	<string>146FF785-DC85-40CA-91DC-96416D46D086</string>
 	<key>IDESourceControlProjectName</key>
-	<string>EMI_DrMr</string>
+	<string>EMI_Pt</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>5F4FA9F0126D31C2A28FDBBCB5F9B8F5B983E693</key>
 		<string>https://github.com/codefteam/eMeApp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>DrMr/EMI_DrMr.xcodeproj</string>
+	<string>EMI_Pt/EMI_Pt.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5F4FA9F0126D31C2A28FDBBCB5F9B8F5B983E693</key>
