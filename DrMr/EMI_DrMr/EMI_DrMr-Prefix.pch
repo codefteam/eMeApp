@@ -1,0 +1,227 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+//------------------------------------------------------------------------------------
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+//共通ヘッダー
+#ifdef __OBJC__
+	#import <UIKit/UIKit.h>
+	#import <Foundation/Foundation.h>
+	#import "Utility.h"
+	#import "MasterService.h"
+	#import "Configuration.h"
+	#import "UserFactory.h"
+
+#endif
+
+/**
+ *  ログ出力マクロ
+ */
+#ifdef DEBUG
+#define PrintLog(format, ...) NSLog((@"%s: %d: %s: " format), __FILE__, __LINE__, __FUNCTION__, ##__VA_ARGS__)
+#else
+#define PrintLog(format, ...)
+#endif
+
+
+/**
+ *  ios判定マクロ
+ */
+#define SYSTEM_VERSION_EQUAL_TO(v)					([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)				([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)	([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)					([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)		([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+/**
+ *  色指定マクロ
+ */
+#define RGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+#define RGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+
+
+/**
+ *  設定値
+ */
+
+/**
+ *  本番環境
+ */
+//Beacon認証キー
+#define RakuzaApiKey		@"7b66c8608428b6fa0"
+#define RakuzaApiURL		@"https://00044:2011e6a6e21aa00b826cda2496c19616@www.raku-za.jp/reserve/eme-delivery/api_control/"
+
+/**
+ *  開発環境
+ */
+//Beacon認証キー
+//#define RakuzaApiKey		@"0123456789ABCDEFG"
+//#define RakuzaApiURL		@"http://rakuzauser:rakuzauser2014@133.162.231.234/reserve/emi-delivery/api_control/index/"
+
+
+#define Const_message_max_length		255
+#define APIResponseNormalStatusCode		@"1001"
+#define Const_tenantid					@"00044"
+#define Const_user_high_class_cd		@"0003"
+#define Const_smartphonesb_cd			@"0002"
+
+#define Dr_user_high_class_cd			@"0001"
+#define Mr_user_high_class_cd			@"0003"
+
+
+/**
+ *  共通
+ */
+#define TitleCommonError				@"エラー"
+#define TitleCommonConnecting			@"通信中"
+#define TitleCommonConfirm				@"確認"
+
+//メッセージ
+#define MsgCommonPleaseWait				@"しばらくお待ちください"
+#define MsgCommonError					@"通信エラー"
+#define MsgCommonConnectError			@"接続に失敗しました"
+#define MsgCommonFormatError			@"データのフォーマットが\n正しくありません"
+#define MsgUnreadMessagesZero			@"未読通知はありません"
+#define MsgMessagesZero					@"メッセージがありません"
+
+//ボタンタイトル
+#define BtnCommonConfirm				@"確認"
+#define BtnCommonCancel					@"キャンセル"
+
+/**
+ *  マスタ取得
+ */
+//利用者情報
+#define MsgGetUserError					@"通信エラー(1001)"
+#define MsgGetUserFormatError			@"データのフォーマットが\n正しくありません(2001)"
+#define MsgGetUserConnectError			@"接続に失敗しました(3001)"
+
+//Beacon情報
+#define MsgGetBeaconError				@"通信エラー(1002)"
+#define MsgGetBeaconFormatError			@"データのフォーマットが\n正しくありません(2002)"
+#define MsgGetBeaconConnectError		@"接続に失敗しました(3002)"
+
+//病院・会社情報
+#define MsgGetCompanyError				@"通信エラー(1003)"
+#define MsgGetCompanyFormatError		@"データのフォーマットが\n正しくありません(2003)"
+#define MsgGetCompanyConnectError		@"接続に失敗しました(3003)"
+
+//病院契約会社情報
+#define MsgGetContractError				@"通信エラー(1011)"
+#define MsgGetContractFormatError		@"データのフォーマットが\n正しくありません(2011)"
+#define MsgGetContractConnectError		@"接続に失敗しました(3011)"
+
+//MR一覧取得
+#define MsgGetgetMrListError			@"通信エラー(1012)"
+#define MsgGetgetMrListFormatError		@"データのフォーマットが\n正しくありません(2012)"
+#define MsgGetgetMrListConnectError		@"接続に失敗しました(3012)"
+
+//DR連絡可否
+#define MsgEditDrCallpermitError		@"通信エラー(1013)"
+#define MsgEditDrCallpermitFormatError	@"データのフォーマットが\n正しくありません(2013)"
+#define MsgEditDrCallpermitConnectError	@"接続に失敗しました(3013)"
+
+//MR呼出
+#define BtnCallMrDone					@"呼び出す"
+#define TitleCallMrAsk					@"MR呼び出し"
+#define MsgCallMrAsk					@"MRを呼び出しますか?"
+#define TitleCallMrSuccess				@"確認"
+#define MsgCallMrSuccess				@"呼び出しました"
+#define MsgCallMrError					@"通信エラー(1013)"
+#define MsgCallMrFormatError			@"データのフォーマットが\n正しくありません(2013)"
+#define MsgCallMrConnectError			@"接続に失敗しました(3013)"
+
+//コミュニケート申請承認
+#define BtnApprovalAgreeDone			@"承認する"
+#define BtnApprovalAgreeCancel			@"承認しない"
+#define TitleApprovalAgreeAsk			@"コミュニケート申請承認"
+#define MsgApprovalAgreeAsk				@"コミュニケート申請がきています\n承認しますか?	"
+#define MsgApprovalAgreeError			@"通信エラー(1014)"
+#define MsgApprovalAgreeFormatError		@"データのフォーマットが\n正しくありません(2014)"
+#define MsgApprovalAgreeConnectError	@"接続に失敗しました(3014)"
+
+//DR一覧取得
+#define MsgGetgetDrListError			@"通信エラー(1021)"
+#define MsgGetgetDrListFormatError		@"データのフォーマットが\n正しくありません(2021)"
+#define MsgGetgetDrListConnectError		@"接続に失敗しました(3021)"
+
+//MR連絡可否
+#define MsgEditMrCallpermitError		@"通信エラー(1022)"
+#define MsgEditMrCallpermitFormatError	@"データのフォーマットが\n正しくありません(2022)"
+#define MsgEditMrCallpermitConnectError	@"接続に失敗しました(3022)"
+
+//コミュニケート申請
+#define BtnApprovalDone					@"申請する"
+#define BtnApprovalCancel				@"申請しない"
+#define TitleApprovalAsk				@"コミュニケート申請"
+#define MsgApprovalAsk					@"コミュニケート申請を行います\n申請しますか？	"
+#define MsgApprovalSuccess				@"コミュニケート申請しました"
+#define MsgApprovalError				@"通信エラー(1023)"
+#define MsgApprovalFormatError			@"データのフォーマットが\n正しくありません(2023)"
+#define MsgApprovalConnectError			@"接続に失敗しました(3023)"
+
+//呼出確認
+#define BtnCalledDone					@"すぐに確認"
+#define TitleCalledAsk					@"呼び出し"
+#define MsgCalledAsk					@"呼び出しがありました"
+
+
+/**
+ *  ログイン認証
+ */
+#define TitleUserAuthenticated			@"認証中"
+#define MsgInputLoginIDError			@"ユーザIDを入力してください"
+#define MsgInputPasswordError			@"パスワードを入力してください"
+#define MsgUserAuthenticatedError		@"ログインに失敗しました"
+
+/**
+ *  ログアウト
+ */
+
+#define MsgLogoutNetWorkValidateError	@"オフラインのため処理出来ません"
+#define BtnLogoutDone					@"ログアウト"
+#define BtnLogoutCancel					@"キャンセル"
+#define TitleLogoutAsk					@""
+#define MsgLogoutAsk					@"ログアウトしますがよろしいですか?"
+#define MsgLogoutError					@"ログアウトに失敗しました"
+
+/**
+ *  パスワード変更
+ */
+#define MsgInputPasswordNowError		@"現在のパスワードを入力してください"
+#define MsgInputPasswordNewError		@"新しいパスワードを入力してください"
+#define MsgInputPasswordCheckError		@"新しいパスワード(確認)を入力してください"
+#define MsgInputPasswordValidateError	@"新しいパスワード(確認)は\n新しいパスワードと\n一致しなければなりません"
+
+#define MsgEditPasswordSuccess			@"パスワード変更が完了しました"
+#define MsgEditPasswordError			@"パスワード変更に失敗しました"
+
+
+
+#define MsgUserAuthenticatedError		@"ログインに失敗しました"
+
+
+
+
+
+
+
+/**
+ *  タイトル
+ */
+#define LoginTitle						@"利用者認証"
+#define DRTitle							@"ドクター画面"
+#define MRTitle							@"MR画面"
+
+
+
+
+
