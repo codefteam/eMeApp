@@ -63,7 +63,6 @@
 #pragma mark - Action
 - (void)startUp
 {
-    NSLog(@"startup1");
 	//通信中のメッセージ表示
 	UIAlertView *_alertView = nil;
 	
@@ -101,9 +100,7 @@
 	else {
 		[Utility showMessage:dic[@"result_title"] message:dic[@"result_message"]];
 	}
-    
-    NSLog(@"startup");
-	
+    	
 }
 
 - (void)showNextViewController

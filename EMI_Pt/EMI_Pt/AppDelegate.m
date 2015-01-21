@@ -29,18 +29,14 @@
 	if([[launchOptions allKeys] containsObject:UIApplicationLaunchOptionsLocationKey]) {
 		
 		[self changeIndication];
-        NSLog(@"1");
 		
 	}
 	
 	//キー監視
 	[[StateObserver sharedManager]startStateObserver];
-    NSLog(@"2");
 	[[PermissionObserver sharedManager]startPermissionObserver];
-		NSLog(@"3");
 	//ナビゲーションのテーマの設定
 	[Utility setupAppTheme];
-NSLog(@"4");
 //	//アプリ起動時のキーボード表示が遅いための処理
 	UITextField *lagFreeField = [[UITextField alloc] init];
 	[self.window addSubview:lagFreeField];
