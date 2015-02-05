@@ -157,11 +157,15 @@
 			
 		}
 		else {
-			[AlertFactory showMessage:dic[@"result_title"] message:dic[@"result_message"]];
+			[AlertFactory showMessage:dic[@"result_title"] message:dic[@"result_message"] view:self];
 		}
 	}
 	else {
-		[AlertFactory showMessage:dic[@"result_title"] message:dic[@"result_message"]];
+        //This code has been deprecated on iOS 8
+//		[AlertFactory showMessage:dic[@"result_title"] message:dic[@"result_message"]];
+        //--> Begin solution : added by SonTQ on 2015/01/22
+        [AlertFactory showMessage:dic[@"result_title"] message:dic[@"result_message"] view:self];
+        
 	}
 }
 

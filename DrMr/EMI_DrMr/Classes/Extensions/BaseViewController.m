@@ -39,4 +39,12 @@
 	
 }
 
+/**
+ * Fix shouldAutorotate error
+ * Added by SonTQ on 2015/01/22
+ */
+//-(BOOL)shouldAutorotate{
+//    return NO;
+//}
+
 @end

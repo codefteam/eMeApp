@@ -11,6 +11,7 @@
 @interface AlertFactory : NSObject
 
 + (void)showMessage:(NSString *)title message:(NSString *)message;
++ (void)showMessage:(NSString *)title message:(NSString *)message view:(UIViewController *)view;
 + (UIAlertView *)defaultAlert:(NSString *)title message:(NSString *)message;
 
 @end

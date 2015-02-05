@@ -1315,7 +1315,7 @@
 					"$(SRCROOT)/EMI_DrMr/Classes/External/Rakuza_Libraries/include/RakuzaBeaconReceiver",
 				);
 				INFOPLIST_FILE = "EMI_DrMr/EMI_DrMr-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EMI_DrMr/Classes/External/Rakuza_Libraries/lib",
@@ -1348,7 +1348,7 @@
 					"$(SRCROOT)/EMI_DrMr/Classes/External/Rakuza_Libraries/include/RakuzaBeaconReceiver",
 				);
 				INFOPLIST_FILE = "EMI_DrMr/EMI_DrMr-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/EMI_DrMr/Classes/External/Rakuza_Libraries/lib",
